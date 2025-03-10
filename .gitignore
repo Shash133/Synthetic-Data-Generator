@@ -1,0 +1,52 @@
+# Conda environment directory
+.conda/
+conda-meta/
+envs/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Environment variables
+.env
+
+# Logs
+*.log
+logs/
+
+# Model files (if they're large, you might want to ignore them)
+models/*.pt
+models/*.pth
+*.h5
+
+# Generated data files
+*.csv
+*.xlsx
+*.pkl
+
+# System files
+.DS_Store
+Thumbs.db

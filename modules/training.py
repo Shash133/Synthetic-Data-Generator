@@ -59,11 +59,16 @@ def train_gan(generator, discriminator, data_tensor, config, progress_callback=N
     early_stopper = EarlyStopping(patience=50)
     g_losses, d_losses = [], []
     
+    
     for epoch in range(config.EPOCHS):
         # Train discriminator
         for _ in range(config.CRITIC_ITER):
             idx = torch.randint(0, len(data_tensor), (config.BATCH_SIZE,))
             real_batch = data_tensor[idx]
+            if isinstance(real_batch, np.ndarray):
+                real_batch = torch.tensor(real_batch, dtype=torch.float32)
+        
+                real_loss = -torch.mean(discriminator(real_batch))
             
             z = torch.randn(config.BATCH_SIZE, config.LATENT_DIM)
             fake_batch = generator(z)

@@ -112,9 +112,10 @@ def calculate_metrics(real_df, synth_df):
     
     return metrics_df
 
-def plot_metrics(metrics_df):
+def plot_metrics(real_data, synthetic_data):
     """Create plots for evaluation metrics"""
     # KS Statistics
+    metrics_df = calculate_metrics(real_data, synthetic_data)
     fig1 = go.Figure()
     fig1.add_trace(go.Bar(
         x=metrics_df.index,
